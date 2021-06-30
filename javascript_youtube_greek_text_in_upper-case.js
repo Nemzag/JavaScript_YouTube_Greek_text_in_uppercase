@@ -37,18 +37,13 @@ youTubeTextInTopUpperCaseGreek();
 
 function youTubeTextInTopUpperCaseGreek() {
 
-    /*
-          var strMessage1 = document.getElementById("element1") ;
-    strMessage1.innerHTML = strMessage1.innerHTML
-                                .replace(/aaaaaa./g,'<a href=\"http://www.google.com/')
-                                .replace(/.bbbbbb/g,'/world\">Helloworld</a>');
-     */
+    console.log("ϰdivIdPrimary : " + ϰdivIdPrimary);
 
     let ϰreplacedDivIdPrimary = ϰdivIdPrimary.innerHTML;
 
     console.log("ϰreplacedDivIdPrimary : " + ϰreplacedDivIdPrimary);
 
-    ϰdivIdPrimary.innerHTML = null;
+    // ϰdivIdPrimary.innerHTML = null;
 
     ϰreplacedDivIdPrimary = ϰreplacedDivIdPrimary
         .replace(/α/g,"Α") // 0001
@@ -86,11 +81,16 @@ function youTubeTextInTopUpperCaseGreek() {
         .replace(/ώ/g,"Ώ") // 1000
         .trim();
 
-    console.log(ϰreplacedDivIdPrimary);
+    console.log("ϰreplacedDivIdPrimary : " + ϰreplacedDivIdPrimary);
 
-    ϰdivIdPrimary.innerHTML = ϰreplacedDivIdPrimary;
+    let ϰparser = new DOMParser();
+    let ϰnewNode = ϰparser.parseFromString(ϰreplacedDivIdPrimary, 'text/html');
 
-    console.log(ϰdivIdPrimary);
+    console.log("ϰnewNode : " + ϰnewNode);
+
+    ϰdivIdPrimary.append(ϰnewNode);
+
+    console.log("ϰdivIdPrimary : " + ϰdivIdPrimary);
 }
 
 //========================================================================================
